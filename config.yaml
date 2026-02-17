@@ -1,0 +1,28 @@
+data:
+  raw_path: "data/hh.csv"
+  processed_path: "data/processed/"
+
+model:
+  type: "random_forest"
+  params:
+    n_estimators: 200
+    max_depth: 10
+    min_samples_split: 5
+    min_samples_leaf: 2
+  use_class_weights: true
+
+preprocessing:
+  test_size: 0.3
+  random_state: 42
+
+features:
+  numerical: ["age", "experience_years", "salary"]
+  categorical: ["city", "education_level"]
+  binary: ["is_moscow", "is_spb", "has_car"]
+
+results:
+  save_path: "results/"
+  plots:
+    class_balance: true
+    confusion_matrix: true
+    feature_importance: true
